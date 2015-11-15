@@ -1,8 +1,8 @@
 //
-//  PushedViewController.h
-//  ViewDeckExample
+//  UIViewController+IIViewDeckController.h
+//  IIViewDeck
 //
-//  Copyright (C) 2011-2016, ViewDeck
+//  Copyright (C) 2016, ViewDeck
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy of
 //  this software and associated documentation files (the "Software"), to deal in
@@ -25,6 +25,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PushedViewController : UIViewController
+NS_ASSUME_NONNULL_BEGIN
+
+// category on UIViewController to provide access to the viewDeckController in the
+// contained viewcontrollers, a la UINavigationController.
+@class IIViewDeckController;
+@interface UIViewController (IIViewDeckAdditions)
+
+@property (nonatomic, readonly, nullable) IIViewDeckController *viewDeckController;
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -1,8 +1,8 @@
 //
-//  WrappedController.h
-//  IIViewDeck
+//  IISideContainerViewController.h
+//  Pods
 //
-//  Copyright (C) 2011-2015, ViewDeck
+//  Copyright (C) 2016, ViewDeck
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy of
 //  this software and associated documentation files (the "Software"), to deal in
@@ -10,7 +10,7 @@
 //  use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
 //  of the Software, and to permit persons to whom the Software is furnished to do
 //  so, subject to the following conditions:
-// 
+//
 //  The above copyright notice and this permission notice shall be included in all
 //  copies or substantial portions of the Software.
 //
@@ -25,23 +25,21 @@
 
 #import <UIKit/UIKit.h>
 
-@interface IIWrapController : UIViewController
+#import "IIEnvironment.h"
 
-@property (nonatomic, readonly, retain) UIViewController* wrappedController;
-@property (nonatomic, copy) void(^onViewDidLoad)(IIWrapController* controller);
-@property (nonatomic, copy) void(^onViewWillAppear)(IIWrapController* controller, BOOL animated);
-@property (nonatomic, copy) void(^onViewDidAppear)(IIWrapController* controller, BOOL animated);
-@property (nonatomic, copy) void(^onViewWillDisappear)(IIWrapController* controller, BOOL animated);
-@property (nonatomic, copy) void(^onViewDidDisappear)(IIWrapController* controller, BOOL animated);
 
-- (id)initWithViewController:(UIViewController*)controller;
+NS_ASSUME_NONNULL_BEGIN
 
-@end
+@class IIViewDeckController;
+@interface IISideContainerViewController : UIViewController
 
-// category on WrappedController to provide access to the viewDeckController in the 
-// contained viewcontrollers, a la UINavigationController.
-@interface UIViewController (WrapControllerItem) 
+@property (nonatomic, readonly) UIViewController *innerViewController;
+@property (nonatomic, weak, readonly) IIViewDeckController *viewDeckController;
 
-@property(nonatomic,readonly,assign) IIWrapController *wrapController; 
+@property (nonatomic, readonly) IIViewDeckSide side;
+
+- (instancetype)initWithViewController:(UIViewController *)viewController viewDeckController:(IIViewDeckController *)viewDeckController NS_DESIGNATED_INITIALIZER;
 
 @end
+
+NS_ASSUME_NONNULL_END

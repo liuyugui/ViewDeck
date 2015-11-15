@@ -1,6 +1,6 @@
 //
-//  PushedViewController.h
-//  ViewDeckExample
+//  IIEnvironment.h
+//  IIViewDeck
 //
 //  Copyright (C) 2011-2016, ViewDeck
 //
@@ -23,8 +23,19 @@
 //  SOFTWARE.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
-@interface PushedViewController : UIViewController
+typedef NS_ENUM(NSInteger, IIViewDeckSide) {
+    IIViewDeckSideNone = 0,
+    IIViewDeckSideLeft,
+    IIViewDeckSideRight,
 
-@end
+    IIViewDeckSideUnknown = IIViewDeckSideNone,
+
+    IIViewDeckLeftSide __deprecated_enum_msg("Use IIViewDeckSideLeft instead.") = IIViewDeckSideLeft,
+    IIViewDeckRightSide __deprecated_enum_msg("Use IIViewDeckSideRight instead.") = IIViewDeckSideRight,
+};
+
+static inline BOOL IIViewDeckSideIsValid(IIViewDeckSide side) {
+    return (side == IIViewDeckSideLeft || side == IIViewDeckSideRight);
+}
