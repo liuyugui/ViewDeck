@@ -77,17 +77,141 @@ FOUNDATION_EXPORT NSString* NSStringFromIIViewDeckSide(IIViewDeckSide side);
 
 @interface IIViewDeckController : UIViewController
 
+/// @name Initializing a View Deck Controller
+
+/**
+ Initialises an instance of `IIViewDeckController` with the given view controller
+ as the center view controller.
+ 
+ When using this method, the receiver has no left or right view controller after
+ initialization and you need to set these manually via `setLeftViewController:`
+ or `setRightViewController:`.
+ 
+ @see initWithCenterViewController:leftViewController:
+ @see initWithCenterViewController:rightViewController:
+ @see initWithCenterViewController:leftViewController:rightViewController:
+
+ @param centerController The view controller that should be responsible for the
+                         view in the center of the view deck controller.
+
+ @return A newly initialized instance of `IIViewDeckController`.
+ */
 - (instancetype)initWithCenterViewController:(UIViewController*)centerController;
+
+/**
+ Initialises an instance of `IIViewDeckController` with the given center and left
+ view controller.
+
+ When using this method, the receiver has no right view controller after
+ initialization and you need to set this manually via `setRightViewController:`
+ if you want to add one.
+
+ @param centerController The view controller that should be responsible for the
+                         view in the center of the view deck controller.
+ @param leftController   The view controller that should be responsible for the
+                         view on the left side of the view deck controller.
+
+ @return A newly initialized instance of `IIViewDeckController`.
+ */
 - (instancetype)initWithCenterViewController:(UIViewController*)centerController leftViewController:(nullable UIViewController*)leftController;
+
+/**
+ Initialises an instance of `IIViewDeckController` with the given center and
+ right view controller.
+
+ When using this method, the receiver has no left view controller after
+ initialization and you need to set this manually via `setLeftViewController:`
+ if you want to add one.
+
+ @param centerController The view controller that should be responsible for the
+                         view in the center of the view deck controller.
+ @param rightController  The view controller that should be responsible for the
+                         view on the right side of the view deck controller.
+
+ @return A newly initialized instance of `IIViewDeckController`.
+ */
 - (instancetype)initWithCenterViewController:(UIViewController*)centerController rightViewController:(nullable UIViewController*)rightController;
+
+/**
+ Initialises an instance of `IIViewDeckController` with the given center, left,
+ and right view controller.
+ 
+ @note This is the designated initializer.
+
+ @param centerController The view controller that should be responsible for the
+                         view in the center of the view deck controller.
+ @param leftController   The view controller that should be responsible for the
+                         view on the left side of the view deck controller.
+ @param rightController  The view controller that should be responsible for the
+                         view on the right side of the view deck controller.
+
+ @return A newly initialized instance of `IIViewDeckController`.
+ */
 - (instancetype)initWithCenterViewController:(UIViewController*)centerController leftViewController:(nullable UIViewController*)leftController rightViewController:(nullable UIViewController*)rightController NS_DESIGNATED_INITIALIZER;
 
-@property (nonatomic) IBOutlet UIViewController* centerViewController;
+/// @name Maintaining the Content View Controllers
+
+/**
+ The view controller that is responsible for the view in the center of the view
+ deck controller.
+ */
+@property (nonatomic) UIViewController* centerViewController;
+
+/**
+ The view controller that is responsible for the view on the left side of the
+ view deck controller.
+ 
+ @warning Setting this view controller while is is already on screen will
+          trigger an exception.
+ */
 @property (nonatomic, nullable) UIViewController* leftViewController;
+
+/**
+ The view controller that is responsible for the view on the right side of the
+ view deck controller.
+
+ @warning Setting this view controller while is is already on screen will
+          trigger an exception.
+ */
 @property (nonatomic, nullable) UIViewController* rightViewController;
 
+/// @name Managing open and close Transitions
+
+/**
+ The side of the view deck controller that is currently open or `IIViewDeckSideNone`
+ if no side is currently open and the center view controller is the only
+ controller that the view deck controller is currently showing.
+ 
+ @see openSide:animated:
+ */
 @property (nonatomic) IIViewDeckSide openSide;
+
+/**
+ Opens the passed in side.
+ 
+ Opening a side that is already open does nothing.
+ 
+ @note You can only switch between no view controller (`IIViewDeckSideNone`) or
+       either the left (`IIViewDeckSideLeft`) or right (`IIViewDeckSideRight`)
+       view controller. You can not switch directly from left to right without
+       dismissing the open side first.
+ 
+ @see closeSide:
+
+ @param side     The side you want to open.
+ @param animated `YES` if you want to animate the transition, `NO` otherwise.
+ */
 - (void)openSide:(IIViewDeckSide)side animated:(BOOL)animated;
+
+/**
+ Closes the currently open side.
+ 
+ Closing a side when no side is open does nothing.
+
+ @see openSide:animated:
+
+ @param animated `YES` if you want to animate the transition, `NO` otherwise.
+ */
 - (void)closeSide:(BOOL)animated;
 
 

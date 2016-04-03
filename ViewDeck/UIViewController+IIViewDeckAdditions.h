@@ -27,11 +27,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-// category on UIViewController to provide access to the viewDeckController in the
-// contained viewcontrollers, a la UINavigationController.
 @class IIViewDeckController;
 @interface UIViewController (IIViewDeckAdditions)
 
+/**
+ The nearest ancestor in the view controller hierarchy that is a view deck controller.
+ */
 @property (nonatomic, readonly, nullable) IIViewDeckController *viewDeckController;
 
 @end

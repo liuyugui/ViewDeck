@@ -194,6 +194,9 @@ static inline BOOL IIIsAllowedTransition(IIViewDeckSide fromSide, IIViewDeckSide
 
 // could be made public if needed, but for now: Keep the interface as small as possible.
 - (void)openSide:(IIViewDeckSide)side animated:(BOOL)animated completion:(nullable void(^)(void))completion {
+    if (side == _openSide) {
+        return;
+    }
     NSAssert(IIIsAllowedTransition(_openSide, side), @"Open and close transitions are only allowed between a side and the center. You can not transition straight from one side to another side.");
     _openSide = side;
     switch (side) {
