@@ -1,5 +1,5 @@
 //
-//  IIViewDeckTransitioningDelegate.h
+//  IIEnvironment+Private.h
 //  Pods
 //
 //  Copyright (C) 2016, ViewDeck
@@ -23,21 +23,8 @@
 //  SOFTWARE.
 //
 
-#import <UIKit/UIKit.h>
+#import "IIEnvironment.h"
 
-NS_ASSUME_NONNULL_BEGIN
+#define IILimit(__min__, __value__, __max__) MAX(__min__, MIN(__value__, __max__))
 
-@class IIViewDeckController;
-@interface IIViewDeckTransitioningDelegate : NSObject <UIViewControllerTransitioningDelegate>
-
-+ (instancetype)new NS_UNAVAILABLE;
-- (instancetype)init NS_UNAVAILABLE;
-
-@property (nonatomic, readonly) UIScreenEdgePanGestureRecognizer *leftEdgeGestureRecognizer;
-@property (nonatomic, readonly) UIScreenEdgePanGestureRecognizer *rightEdgeGestureRecognizer;
-
-- (instancetype)initWithViewDeckController:(IIViewDeckController *)viewDeckController NS_DESIGNATED_INITIALIZER;
-
-@end
-
-NS_ASSUME_NONNULL_END
+#define IILimitFraction(__value__) IILimit(0.0, __value__, 1.0)

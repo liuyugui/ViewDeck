@@ -52,7 +52,11 @@ NSString* NSStringFromIIViewDeckSide(IIViewDeckSide side) {
 @implementation IIViewDeckView @end
 
 
-@interface IIViewDeckController ()
+@interface IIViewDeckController () {
+    struct {
+        unsigned int isInSideChange: 1;
+    } _flags;
+}
 
 @property (nonatomic) id<UIViewControllerTransitioningDelegate> defaultTransitioningDelegate;
 
@@ -112,6 +116,11 @@ NSString* NSStringFromIIViewDeckSide(IIViewDeckSide side) {
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    IIViewDeckTransitioningDelegate *transitioningDelegate = self.defaultTransitioningDelegate;
+    UIView *view = self.view;
+    [view addGestureRecognizer:transitioningDelegate.leftEdgeGestureRecognizer];
+    [view addGestureRecognizer:transitioningDelegate.rightEdgeGestureRecognizer];
+
     [self ii_exchangeViewFromController:nil toController:self.centerViewController inContainerView:self.view];
 }
 
@@ -132,7 +141,7 @@ NSString* NSStringFromIIViewDeckSide(IIViewDeckSide side) {
     }];
     
     [self setNeedsStatusBarAppearanceUpdate];
-    
+
     // TODO: Start monitoring tab bar items here...
 }
 
@@ -149,6 +158,8 @@ NSString* NSStringFromIIViewDeckSide(IIViewDeckSide side) {
         container.transitioningDelegate = self.defaultTransitioningDelegate;
     }
     self.leftContainerViewController = container;
+
+    [self updateSideGestureRecognizer];
 }
 
 - (void)setLeftContainerViewController:(nullable IISideContainerViewController *)leftContainerViewController {
@@ -169,6 +180,8 @@ NSString* NSStringFromIIViewDeckSide(IIViewDeckSide side) {
         container.transitioningDelegate = self.defaultTransitioningDelegate;
     }
     self.rightContainerViewController = container;
+
+    [self updateSideGestureRecognizer];
 }
 
 - (void)setRightContainerViewController:(nullable IISideContainerViewController *)rightContainerViewController {
@@ -181,7 +194,7 @@ NSString* NSStringFromIIViewDeckSide(IIViewDeckSide side) {
 #pragma mark - Side State
 
 static inline BOOL IIIsAllowedTransition(IIViewDeckSide fromSide, IIViewDeckSide toSide) {
-    return (IIViewDeckSideIsValid(fromSide) && !IIViewDeckSideIsValid(toSide)) || (!IIViewDeckSideIsValid(fromSide) && IIViewDeckSideIsValid(toSide));
+    return (fromSide == toSide) || (IIViewDeckSideIsValid(fromSide) && !IIViewDeckSideIsValid(toSide)) || (!IIViewDeckSideIsValid(fromSide) && IIViewDeckSideIsValid(toSide));
 }
 
 - (void)setOpenSide:(IIViewDeckSide)openSide {
@@ -197,17 +210,29 @@ static inline BOOL IIIsAllowedTransition(IIViewDeckSide fromSide, IIViewDeckSide
     if (side == _openSide) {
         return;
     }
+    NSAssert(self->_flags.isInSideChange == NO, @"A side change is currently taking place. You can not switch the side while already transitioning from or to a side.");
     NSAssert(IIIsAllowedTransition(_openSide, side), @"Open and close transitions are only allowed between a side and the center. You can not transition straight from one side to another side.");
+
+    self->_flags.isInSideChange = YES;
+
+    IIViewDeckSide oldSide = _openSide;
+
+    void(^complete)() = ^{
+        [self updateOpenSide];
+        NSAssert(IIIsAllowedTransition(oldSide, self->_openSide), @"A transition has taken place that is unexpected and unsupported. We are probably in an invalid state right now.");
+        if (completion) { completion(); }
+        self->_flags.isInSideChange = NO;
+    };
     _openSide = side;
     switch (side) {
         case IIViewDeckSideNone:
-            [self dismissViewControllerAnimated:animated completion:completion];
+            [self dismissViewControllerAnimated:animated completion:complete];
             break;
         case IIViewDeckSideLeft:
-            [self presentViewController:self.leftContainerViewController animated:animated completion:completion];
+            [self presentViewController:self.leftContainerViewController animated:animated completion:complete];
             break;
         case IIViewDeckSideRight:
-            [self presentViewController:self.rightContainerViewController animated:animated completion:completion];
+            [self presentViewController:self.rightContainerViewController animated:animated completion:complete];
             break;
     }
 }
@@ -219,6 +244,29 @@ static inline BOOL IIIsAllowedTransition(IIViewDeckSide fromSide, IIViewDeckSide
 // could be made public if needed, but for now: Keep the interface as small as possible.
 - (void)closeSide:(BOOL)animated completion:(nullable void(^)(void))completion {
     [self openSide:IIViewDeckSideNone animated:animated completion:completion];
+}
+
+- (void)updateOpenSide {
+    UIViewController *presentedViewController = self.presentedViewController;
+    if (!presentedViewController) {
+        _openSide = IIViewDeckSideNone;
+    } else if (presentedViewController == self.leftContainerViewController) {
+        _openSide = IIViewDeckSideLeft;
+    } else if (presentedViewController == self.rightContainerViewController) {
+        _openSide = IIViewDeckSideRight;
+    } else {
+        NSAssert(NO, @"View deck was unable to detect if it is presenting a side right now. This probably indicates a broken view conctoller hierarchy or an unsupported presentaiton. presentedViewController: %@", presentedViewController);
+    }
+}
+
+
+
+#pragma mark - Interactive State Management
+
+- (void)updateSideGestureRecognizer {
+    IIViewDeckTransitioningDelegate *transitioningDelegate = self.defaultTransitioningDelegate;
+    transitioningDelegate.leftEdgeGestureRecognizer.enabled = (self.leftViewController != nil);
+    transitioningDelegate.rightEdgeGestureRecognizer.enabled = (self.rightViewController != nil);
 }
 
 @end

@@ -25,7 +25,7 @@
 
 #import "IIViewDeckTransitioningDelegate.h"
 
-#import "IIEnvironment.h"
+#import "IIEnvironment+Private.h"
 #import "IIViewDeckAnimatedTransition.h"
 #import "IIViewDeckController.h"
 #import "IIViewDeckPresentationController.h"
@@ -35,9 +35,15 @@
 NS_ASSUME_NONNULL_BEGIN
 
 
-@interface IIViewDeckTransitioningDelegate ()
+@interface IIViewDeckTransitioningDelegate () {
+    struct {
+        unsigned int isInteractiveTransition: 1;
+    } _flags;
+}
 
 @property (nonatomic, assign) IIViewDeckController *viewDeckController; // this is not weak as it is a required link! If the corresponding view deck controller will be removed, this class can no longer fullfill its purpose!
+
+@property (nonatomic, nullable) UIPercentDrivenInteractiveTransition *currentInteractiveTransition;
 
 @end
 
@@ -53,10 +59,37 @@ NS_ASSUME_NONNULL_BEGIN
     NSParameterAssert(viewDeckController);
     self = [super init];
 
-    _viewDeckController = viewDeckController;
+    _viewDeckController = viewDeckController; 
+
+    UIScreenEdgePanGestureRecognizer *leftEdgeGestureRecognizer = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self action:@selector(edgeGestureRecognized:)];
+    leftEdgeGestureRecognizer.edges = UIRectEdgeLeft;
+    _leftEdgeGestureRecognizer = leftEdgeGestureRecognizer;
+
+    UIScreenEdgePanGestureRecognizer *rightEdgeGestureRecognizer = [[UIScreenEdgePanGestureRecognizer alloc] initWithTarget:self action:@selector(edgeGestureRecognized:)];
+    rightEdgeGestureRecognizer.edges = UIRectEdgeRight;
+    _rightEdgeGestureRecognizer = rightEdgeGestureRecognizer;
 
     return self;
 }
+
+
+
+#pragma mark - Transition Context
+
+- (nullable UIPresentationController *)presentationControllerForPresentedViewController:(UIViewController *)presented presentingViewController:(/*nullable*/ UIViewController *)presenting sourceViewController:(UIViewController *)source {
+    IIViewDeckController *viewDeckController = self.viewDeckController;
+    NSParameterAssert([presented isKindOfClass:[IISideContainerViewController class]]);
+    NSParameterAssert(source == viewDeckController);
+    IISideContainerViewController *container = (IISideContainerViewController *)presented;
+    NSParameterAssert(container.innerViewController == viewDeckController.leftViewController || container.innerViewController == viewDeckController.rightViewController);
+
+    IIViewDeckPresentationController *presentationController = [[IIViewDeckPresentationController alloc] initWithPresentedViewController:presented presentingViewController:presenting];
+    return presentationController;
+}
+
+
+
+#pragma mark - Animated Transitions
 
 - (nullable id <UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source {
     IIViewDeckController *viewDeckController = self.viewDeckController;
@@ -82,19 +115,78 @@ NS_ASSUME_NONNULL_BEGIN
     return transition;
 }
 
-//- (nullable id <UIViewControllerInteractiveTransitioning>)interactionControllerForPresentation:(id <UIViewControllerAnimatedTransitioning>)animator;
+
+
+#pragma mark - Interactive Transitions
+
+- (nullable id <UIViewControllerInteractiveTransitioning>)interactionControllerForPresentation:(id <UIViewControllerAnimatedTransitioning>)animator {
+    if (self->_flags.isInteractiveTransition == NO) {
+        return nil;
+    }
+    NSParameterAssert(self.currentInteractiveTransition == nil);
+    UIPercentDrivenInteractiveTransition *interactiveTransition = [UIPercentDrivenInteractiveTransition new];
+    self.currentInteractiveTransition = interactiveTransition;
+    return interactiveTransition;
+}
 
 //- (nullable id <UIViewControllerInteractiveTransitioning>)interactionControllerForDismissal:(id <UIViewControllerAnimatedTransitioning>)animator;
 
-- (nullable UIPresentationController *)presentationControllerForPresentedViewController:(UIViewController *)presented presentingViewController:(/*nullable*/ UIViewController *)presenting sourceViewController:(UIViewController *)source {
-    IIViewDeckController *viewDeckController = self.viewDeckController;
-    NSParameterAssert([presented isKindOfClass:[IISideContainerViewController class]]);
-    NSParameterAssert(source == viewDeckController);
-    IISideContainerViewController *container = (IISideContainerViewController *)presented;
-    NSParameterAssert(container.innerViewController == viewDeckController.leftViewController || container.innerViewController == viewDeckController.rightViewController);
+- (IBAction)edgeGestureRecognized:(UIScreenEdgePanGestureRecognizer *)gestureRecognizer {
+    IIViewDeckSide side = IIViewDeckSideUnknown;
+    if (gestureRecognizer == self.leftEdgeGestureRecognizer) {
+        side = IIViewDeckSideLeft;
+    } else if (gestureRecognizer == self.rightEdgeGestureRecognizer) {
+        side = IIViewDeckSideRight;
+    }
+    NSParameterAssert(side != IIViewDeckSideUnknown);
 
-    IIViewDeckPresentationController *presentationController = [[IIViewDeckPresentationController alloc] initWithPresentedViewController:presented presentingViewController:presenting];
-    return presentationController;
+    switch (gestureRecognizer.state) {
+        case UIGestureRecognizerStateBegan: {
+            NSParameterAssert(!self.currentInteractiveTransition);
+            self->_flags.isInteractiveTransition = YES;
+            [self.viewDeckController openSide:side animated:YES];
+            break;
+        }
+        case UIGestureRecognizerStateChanged: {
+            NSParameterAssert(self.currentInteractiveTransition);
+            CGPoint point = [gestureRecognizer locationInView:gestureRecognizer.view];
+            UIViewController *presentedController = self.viewDeckController.presentedViewController;
+            if (side == IIViewDeckSideRight) {
+                point.x -= CGRectGetWidth(gestureRecognizer.view.bounds) - CGRectGetWidth(presentedController.view.bounds);
+            }
+            CGFloat percentage = point.x / CGRectGetWidth(presentedController.view.bounds);
+            if (side == IIViewDeckSideRight) {
+                percentage = 1.0 - percentage;
+            }
+            percentage = IILimit(0.01, percentage, 0.99); // if we allow a value of 1.0 this breaks the interactive transition once we call `finishInteractiveTransition`.
+            [self.currentInteractiveTransition updateInteractiveTransition:percentage];
+            break;
+        }
+        case UIGestureRecognizerStateEnded: {
+            NSParameterAssert(self.currentInteractiveTransition);
+            CGFloat translation = [gestureRecognizer velocityInView:gestureRecognizer.view].x;
+            if (side == IIViewDeckSideRight) {
+                translation *= -1.0;
+            }
+            if (translation > 0.0) {
+                [self.currentInteractiveTransition finishInteractiveTransition];
+            } else {
+                [self.currentInteractiveTransition cancelInteractiveTransition];
+            }
+            self.currentInteractiveTransition = nil;
+            self->_flags.isInteractiveTransition = NO;
+            break;
+        }
+        case UIGestureRecognizerStateCancelled: {
+            NSParameterAssert(self.currentInteractiveTransition);
+            [self.currentInteractiveTransition cancelInteractiveTransition];
+            self.currentInteractiveTransition = nil;
+            self->_flags.isInteractiveTransition = NO;
+            break;
+        }
+        default:
+            break;
+    }
 }
 
 @end

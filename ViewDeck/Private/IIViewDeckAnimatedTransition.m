@@ -62,6 +62,8 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 - (void)animateTransition:(id <UIViewControllerContextTransitioning>)transitionContext {
+    UIViewAnimationOptions animationOptions = (transitionContext.isInteractive ? UIViewAnimationOptionCurveLinear : UIViewAnimationCurveEaseInOut);
+
     if (self.appearing) {
         IISideContainerViewController *sideViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
         NSParameterAssert([sideViewController isKindOfClass:[IISideContainerViewController class]]);
@@ -83,10 +85,11 @@ NS_ASSUME_NONNULL_BEGIN
         toView.frame = initialFrame;
         UIView *containerView = transitionContext.containerView;
         [containerView addSubview:toView];
-        [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0.0 options:animationOptions animations:^{
             toView.frame = finalFrame;
         } completion:^(BOOL finished) {
-            [transitionContext completeTransition:finished];
+            BOOL completed = !transitionContext.transitionWasCancelled; // evalutate this value. Otherwise cancelling breaks the view hierarchy!
+            [transitionContext completeTransition:completed];
         }];
     } else {
         IISideContainerViewController *sideViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
@@ -107,10 +110,11 @@ NS_ASSUME_NONNULL_BEGIN
 
         UIView *fromView = [transitionContext viewForKey:UITransitionContextFromViewKey];
         UIView *containerView = transitionContext.containerView;
-        [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        [UIView animateWithDuration:[self transitionDuration:transitionContext] delay:0.0 options:animationOptions animations:^{
             fromView.frame = finalFrame;
         } completion:^(BOOL finished) {
-            [transitionContext completeTransition:finished];
+            BOOL completed = !transitionContext.transitionWasCancelled; // evalutate this value. Otherwise cancelling breaks the view hierarchy!
+            [transitionContext completeTransition:completed];
         }];
     }
 }

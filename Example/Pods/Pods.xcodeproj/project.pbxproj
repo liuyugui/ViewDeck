@@ -10,6 +10,33 @@
 	<string>46</string>
 	<key>objects</key>
 	<dict>
+		<key>0439CCE3EA207268B3701EDBDD579CFE</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>UIViewController+Private.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>04C7D9B0079CBC00D9B93E6BADFEEAB9</key>
+		<dict>
+			<key>fileRef</key>
+			<string>EC8914FE8273191BAE876DAEBB7CDE1A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Private</string>
+				</array>
+			</dict>
+		</dict>
 		<key>0C7663DA389EE600D0BC874DA68BCE53</key>
 		<dict>
 			<key>buildConfigurations</key>
@@ -59,14 +86,14 @@
 		<key>10AF53C2601ABCB943D8809C3F83140C</key>
 		<dict>
 			<key>fileRef</key>
-			<string>1FF3EEA71B97627D6428BCF03A88318C</string>
+			<string>C719CE7530CD3726B4F055AF49C55329</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
 		<key>10F86C723D2D459C762152B5E5056093</key>
 		<dict>
 			<key>fileRef</key>
-			<string>95A46C00C7CA1FA838EBE69906171068</string>
+			<string>4B8E1FB9219C7223BDE6D710CFE8B783</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
@@ -83,6 +110,20 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>117D609A41E31A71355FDD9E68D98188</key>
+		<dict>
+			<key>fileRef</key>
+			<string>5EDDF5135C7CDCD566DB31B90C54C039</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Private</string>
+				</array>
+			</dict>
+		</dict>
 		<key>122DA2E5084A4393C29BE363C764795C</key>
 		<dict>
 			<key>children</key>
@@ -96,6 +137,19 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>14228E826316BF781251BA365376CF94</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>IIEnvironment+Private.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>148E0CAF709F8D7C90DF3323425E4C58</key>
 		<dict>
 			<key>fileRef</key>
@@ -103,31 +157,19 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
-		<key>1554E02CDF145C6F3741764F2FE7348F</key>
+		<key>17749783676583606C86F695FCBC5FA4</key>
 		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
+			<key>fileRef</key>
+			<string>56F22B42F903DE9F314781D5D6129E27</string>
 			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>IIEnvironment.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>16D976EF4663FB155FA841153F276F61</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>IIViewDeckController.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Private</string>
+				</array>
+			</dict>
 		</dict>
 		<key>1B3B6993B7BA0A8D087A0AE107256301</key>
 		<dict>
@@ -142,44 +184,27 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>1D5CD99102100EAF4E63161A9FD367A7</key>
+		<key>1BC001E7C49C2AC349299D07F0A86174</key>
 		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>26E63D6A7A19EB0A5604661877E293A0</string>
+				<string>37009BCF83F29EECEF1DCE3BB6ADAABB</string>
+				<string>17749783676583606C86F695FCBC5FA4</string>
+				<string>117D609A41E31A71355FDD9E68D98188</string>
+				<string>E733CBA4613FA84997AE196A5B1FFD90</string>
+				<string>04C7D9B0079CBC00D9B93E6BADFEEAB9</string>
+				<string>46C4CCCB9A6A394D600D487E43A09DD0</string>
+				<string>9AD29794DE573C09D20A367941C94035</string>
+				<string>48B6F041BB1C8399871ED44C3F0DB440</string>
+				<string>9251DCF32D7C98720038E30BF3C514F6</string>
+			</array>
 			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>UIViewController+IIViewDeckAdditions.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>1DD0F61E69139F8B61E2DC6FE1570CE7</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>UIViewController+Private.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>1FF3EEA71B97627D6428BCF03A88318C</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>IIViewDeckAnimatedTransition.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
+			<string>PBXHeadersBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
 		</dict>
 		<key>23087D933672BE73D91CFF0B0962A3E8</key>
 		<dict>
@@ -207,6 +232,20 @@
 			<key>remoteInfo</key>
 			<string>ViewDeck</string>
 		</dict>
+		<key>26E63D6A7A19EB0A5604661877E293A0</key>
+		<dict>
+			<key>fileRef</key>
+			<string>14228E826316BF781251BA365376CF94</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Private</string>
+				</array>
+			</dict>
+		</dict>
 		<key>28020375892215F82294D01FED1BD236</key>
 		<dict>
 			<key>children</key>
@@ -228,6 +267,27 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>2A9B712932B2093C0D2E66E7953DCAD2</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>A850D1970E5A2E173C17DD2ACAAFC4E3</string>
+				<string>AA15C6374BCB95DA87FABF4BDCDF09BE</string>
+				<string>B105118B2C6B0C0A662D6EB2EB5C3690</string>
+				<string>FA496365C21021F962DFDA3A67DC983D</string>
+				<string>D398E7B0F4AE6E59C36553DB1FDA5445</string>
+				<string>F8FBC4017C455BEBBF2FA7097F6DF1E3</string>
+				<string>BC33DF42E463B3F958B60B749DAF850B</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>ViewDeck</string>
+			<key>path</key>
+			<string>ViewDeck</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>2CB491294C12B0E46F0B44E343811F92</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -244,7 +304,7 @@
 		<key>2CE9AD35A1A2F7B04050475E180DEC3E</key>
 		<dict>
 			<key>fileRef</key>
-			<string>90B50B45E86A41370F9D41DF74B84CDF</string>
+			<string>B105118B2C6B0C0A662D6EB2EB5C3690</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
@@ -269,6 +329,20 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
+		<key>37009BCF83F29EECEF1DCE3BB6ADAABB</key>
+		<dict>
+			<key>fileRef</key>
+			<string>A850D1970E5A2E173C17DD2ACAAFC4E3</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
 		<key>39424471717900CC22A8D17AC696BD28</key>
 		<dict>
 			<key>buildActionMask</key>
@@ -289,18 +363,19 @@
 			<key>runOnlyForDeploymentPostprocessing</key>
 			<string>0</string>
 		</dict>
-		<key>3AB1310411B6EB54D767FDE963311D4D</key>
+		<key>46C4CCCB9A6A394D600D487E43A09DD0</key>
 		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
+			<key>fileRef</key>
+			<string>6B737DD9F125F0C4790EB8EC243AC951</string>
 			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>IIViewDeckPresentationController.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Private</string>
+				</array>
+			</dict>
 		</dict>
 		<key>46D9D05CA654B05FF945B65E6658D91D</key>
 		<dict>
@@ -326,10 +401,37 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>48B6F041BB1C8399871ED44C3F0DB440</key>
+		<dict>
+			<key>fileRef</key>
+			<string>C8B2FB460A7C34AD7100FFEA4A7C566D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Private</string>
+				</array>
+			</dict>
+		</dict>
+		<key>4B8E1FB9219C7223BDE6D710CFE8B783</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>IIViewDeckTransitioningDelegate.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>4C1D74695A3A4D5C84EB3AC4610CAB98</key>
 		<dict>
 			<key>fileRef</key>
-			<string>1D5CD99102100EAF4E63161A9FD367A7</string>
+			<string>D398E7B0F4AE6E59C36553DB1FDA5445</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
@@ -362,27 +464,16 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>5C2693E715F6CB273421745DABD8742C</key>
+		<key>56F22B42F903DE9F314781D5D6129E27</key>
 		<dict>
-			<key>children</key>
-			<array>
-				<string>5F365A640CC7A22D7651D25C28FEB285</string>
-				<string>78BE9D8317E0E1EE297BB023C8F9B158</string>
-				<string>764BB905D75115E75E976E9168DC0294</string>
-				<string>1FF3EEA71B97627D6428BCF03A88318C</string>
-				<string>3AB1310411B6EB54D767FDE963311D4D</string>
-				<string>B6A4B0F7150965163916DD9DFE70D21C</string>
-				<string>E93B8B8178752B33E48DF86F67451906</string>
-				<string>95A46C00C7CA1FA838EBE69906171068</string>
-				<string>1DD0F61E69139F8B61E2DC6FE1570CE7</string>
-				<string>E07080446C8B1A0E30563C5C8DA9D7DF</string>
-			</array>
+			<key>includeInIndex</key>
+			<string>1</string>
 			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Private</string>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
 			<key>path</key>
-			<string>Private</string>
+			<string>IISideContainerViewController.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -420,7 +511,7 @@
 			<key>name</key>
 			<string>Debug</string>
 		</dict>
-		<key>5F365A640CC7A22D7651D25C28FEB285</key>
+		<key>5EDDF5135C7CDCD566DB31B90C54C039</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -429,7 +520,7 @@
 			<key>lastKnownFileType</key>
 			<string>sourcecode.c.h</string>
 			<key>path</key>
-			<string>IISideContainerViewController.h</string>
+			<string>IIViewDeckAnimatedTransition.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -494,19 +585,18 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
-		<key>69CBC37571E7BEBAB6C66FF7B01FDDD8</key>
+		<key>6B737DD9F125F0C4790EB8EC243AC951</key>
 		<dict>
-			<key>fileRef</key>
-			<string>764BB905D75115E75E976E9168DC0294</string>
+			<key>includeInIndex</key>
+			<string>1</string>
 			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Private</string>
-				</array>
-			</dict>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>IIViewDeckTransitioningDelegate.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>6DD0CD0341EB13394E862EC90E29580D</key>
 		<dict>
@@ -558,39 +648,12 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>72CC9F6B4C6FB1A7A8FB744D5AEB282F</key>
-		<dict>
-			<key>fileRef</key>
-			<string>E93B8B8178752B33E48DF86F67451906</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Private</string>
-				</array>
-			</dict>
-		</dict>
 		<key>75C9CE8315B688A35A5B223DE4448DA9</key>
 		<dict>
 			<key>fileRef</key>
 			<string>113659873BBAAC2E3CB519ED5B6879C2</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
-		</dict>
-		<key>764BB905D75115E75E976E9168DC0294</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>IIViewDeckAnimatedTransition.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
 		</dict>
 		<key>781DD5769B4AE14F14BCCC2F8A48CB43</key>
 		<dict>
@@ -602,19 +665,6 @@
 			<string>sourcecode.c.objc</string>
 			<key>path</key>
 			<string>ViewDeck-dummy.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>78BE9D8317E0E1EE297BB023C8F9B158</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>IISideContainerViewController.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -649,23 +699,9 @@
 		<key>8090708E6179A3B3AECC267C05D5A0FE</key>
 		<dict>
 			<key>fileRef</key>
-			<string>78BE9D8317E0E1EE297BB023C8F9B158</string>
+			<string>96FF205D011ED7A425A726D8CF444AE7</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
-		</dict>
-		<key>83926CB8EE3153E462AD9E5DCE0B39BE</key>
-		<dict>
-			<key>fileRef</key>
-			<string>3AB1310411B6EB54D767FDE963311D4D</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Private</string>
-				</array>
-			</dict>
 		</dict>
 		<key>85D8AAA59A0E1FF2B896C34BF5C44716</key>
 		<dict>
@@ -679,20 +715,6 @@
 			<string>D823F9361216B8B251FE9A4415FF5E59</string>
 			<key>remoteInfo</key>
 			<string>ViewDeck</string>
-		</dict>
-		<key>881DD8AE461ED94E102FBF2E4523C68F</key>
-		<dict>
-			<key>fileRef</key>
-			<string>5F365A640CC7A22D7651D25C28FEB285</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Private</string>
-				</array>
-			</dict>
 		</dict>
 		<key>892B882C93CB5F0912DFD1CE4BB80752</key>
 		<dict>
@@ -755,17 +777,6 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
-		<key>90B50B45E86A41370F9D41DF74B84CDF</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>IIViewDeckController.mm</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>91413329813FA6FE5A78842159E69621</key>
 		<dict>
 			<key>isa</key>
@@ -778,6 +789,20 @@
 			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework</string>
 			<key>sourceTree</key>
 			<string>DEVELOPER_DIR</string>
+		</dict>
+		<key>9251DCF32D7C98720038E30BF3C514F6</key>
+		<dict>
+			<key>fileRef</key>
+			<string>F8FBC4017C455BEBBF2FA7097F6DF1E3</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
 		</dict>
 		<key>9321A4B72F81D3B450DBBC9F31DD0D7F</key>
 		<dict>
@@ -826,19 +851,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>95A46C00C7CA1FA838EBE69906171068</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>IIViewDeckTransitioningDelegate.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>96F5EE35E134DB81607B445849A62BA1</key>
 		<dict>
 			<key>buildConfigurationList</key>
@@ -865,6 +877,19 @@
 			<key>productType</key>
 			<string>com.apple.product-type.library.static</string>
 		</dict>
+		<key>96FF205D011ED7A425A726D8CF444AE7</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>IISideContainerViewController.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>9A02F5AD77B3761320A09A2A3708766A</key>
 		<dict>
 			<key>fileRef</key>
@@ -872,10 +897,24 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
+		<key>9AD29794DE573C09D20A367941C94035</key>
+		<dict>
+			<key>fileRef</key>
+			<string>FA496365C21021F962DFDA3A67DC983D</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
 		<key>9B6373D1988760EE4473EC0BBAF04D32</key>
 		<dict>
 			<key>fileRef</key>
-			<string>B6A4B0F7150965163916DD9DFE70D21C</string>
+			<string>F8B1DC170389F9CBF1A176A726607599</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
@@ -891,34 +930,6 @@
 			<string>PBXSourcesBuildPhase</string>
 			<key>runOnlyForDeploymentPostprocessing</key>
 			<string>0</string>
-		</dict>
-		<key>9D027F15FEA6626064073A4DF4150739</key>
-		<dict>
-			<key>fileRef</key>
-			<string>16D976EF4663FB155FA841153F276F61</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>A179E795A469493D87A6FD1CACF90523</key>
-		<dict>
-			<key>fileRef</key>
-			<string>1DD0F61E69139F8B61E2DC6FE1570CE7</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Private</string>
-				</array>
-			</dict>
 		</dict>
 		<key>A70CDAD61F90AC503C7D04CC22DA2923</key>
 		<dict>
@@ -993,6 +1004,32 @@
 			<key>name</key>
 			<string>Debug</string>
 		</dict>
+		<key>A850D1970E5A2E173C17DD2ACAAFC4E3</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>IIEnvironment.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>AA15C6374BCB95DA87FABF4BDCDF09BE</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>IIViewDeckController.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>AF4E4CC21AA488F8DC9FD87D11B4F7C6</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -1003,6 +1040,17 @@
 			<string>text.plist.xml</string>
 			<key>path</key>
 			<string>Pods-ViewDeckExample-acknowledgements.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B105118B2C6B0C0A662D6EB2EB5C3690</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>IIViewDeckController.mm</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -1018,33 +1066,6 @@
 			<string>PBXGroup</string>
 			<key>name</key>
 			<string>Products</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>B50DF8006E48E90250ED99ADDE0C4095</key>
-		<dict>
-			<key>fileRef</key>
-			<string>F9D093427345426F9AC0F43714C31250</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>B6A4B0F7150965163916DD9DFE70D21C</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>IIViewDeckPresentationController.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -1078,6 +1099,31 @@
 			<key>runOnlyForDeploymentPostprocessing</key>
 			<string>0</string>
 		</dict>
+		<key>BC33DF42E463B3F958B60B749DAF850B</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>14228E826316BF781251BA365376CF94</string>
+				<string>56F22B42F903DE9F314781D5D6129E27</string>
+				<string>96FF205D011ED7A425A726D8CF444AE7</string>
+				<string>5EDDF5135C7CDCD566DB31B90C54C039</string>
+				<string>C719CE7530CD3726B4F055AF49C55329</string>
+				<string>EC8914FE8273191BAE876DAEBB7CDE1A</string>
+				<string>F8B1DC170389F9CBF1A176A726607599</string>
+				<string>6B737DD9F125F0C4790EB8EC243AC951</string>
+				<string>4B8E1FB9219C7223BDE6D710CFE8B783</string>
+				<string>C8B2FB460A7C34AD7100FFEA4A7C566D</string>
+				<string>0439CCE3EA207268B3701EDBDD579CFE</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Private</string>
+			<key>path</key>
+			<string>Private</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>C15D6C7B43659D5D511E58FC94B1EE2F</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -1088,6 +1134,32 @@
 			<string>sourcecode.c.h</string>
 			<key>path</key>
 			<string>ViewDeck-prefix.pch</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>C719CE7530CD3726B4F055AF49C55329</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>IIViewDeckAnimatedTransition.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>C8B2FB460A7C34AD7100FFEA4A7C566D</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>UIViewController+Private.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -1213,6 +1285,19 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>D398E7B0F4AE6E59C36553DB1FDA5445</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>UIViewController+IIViewDeckAdditions.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>D41D8CD98F00B204E9800998ECF8427E</key>
 		<dict>
 			<key>attributes</key>
@@ -1253,27 +1338,6 @@
 				<string>D823F9361216B8B251FE9A4415FF5E59</string>
 			</array>
 		</dict>
-		<key>D506CB370DBF2923B1DDF564CED93741</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>1554E02CDF145C6F3741764F2FE7348F</string>
-				<string>16D976EF4663FB155FA841153F276F61</string>
-				<string>90B50B45E86A41370F9D41DF74B84CDF</string>
-				<string>F95FAE7A48EF49BFEE4E4D2B06F67EB7</string>
-				<string>1D5CD99102100EAF4E63161A9FD367A7</string>
-				<string>F9D093427345426F9AC0F43714C31250</string>
-				<string>5C2693E715F6CB273421745DABD8742C</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>ViewDeck</string>
-			<key>path</key>
-			<string>ViewDeck</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>D81FCEDDAA58E3E8A08A279DD554F620</key>
 		<dict>
 			<key>buildActionMask</key>
@@ -1295,7 +1359,7 @@
 			<array>
 				<string>39424471717900CC22A8D17AC696BD28</string>
 				<string>8A71986EBD21F024C91F89E3E8C6CCC7</string>
-				<string>DF907F71BAA0E4F8E6B8C51B57E6BE15</string>
+				<string>1BC001E7C49C2AC349299D07F0A86174</string>
 			</array>
 			<key>buildRules</key>
 			<array/>
@@ -1356,43 +1420,9 @@
 		<key>DC339DCC04D0C4CCA6CDA3F5FD58E294</key>
 		<dict>
 			<key>fileRef</key>
-			<string>E07080446C8B1A0E30563C5C8DA9D7DF</string>
+			<string>0439CCE3EA207268B3701EDBDD579CFE</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
-		</dict>
-		<key>DF907F71BAA0E4F8E6B8C51B57E6BE15</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>F27453EDF583D386586B49D3712FE820</string>
-				<string>881DD8AE461ED94E102FBF2E4523C68F</string>
-				<string>69CBC37571E7BEBAB6C66FF7B01FDDD8</string>
-				<string>9D027F15FEA6626064073A4DF4150739</string>
-				<string>83926CB8EE3153E462AD9E5DCE0B39BE</string>
-				<string>72CC9F6B4C6FB1A7A8FB744D5AEB282F</string>
-				<string>F55DAE357EC09B08A3E05D294CAE8F6C</string>
-				<string>A179E795A469493D87A6FD1CACF90523</string>
-				<string>B50DF8006E48E90250ED99ADDE0C4095</string>
-			</array>
-			<key>isa</key>
-			<string>PBXHeadersBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>E07080446C8B1A0E30563C5C8DA9D7DF</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>UIViewController+Private.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
 		</dict>
 		<key>E22010B76A13DCFB021B5887C002CB3F</key>
 		<dict>
@@ -1419,6 +1449,20 @@
 			<string>Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/QuartzCore.framework</string>
 			<key>sourceTree</key>
 			<string>DEVELOPER_DIR</string>
+		</dict>
+		<key>E733CBA4613FA84997AE196A5B1FFD90</key>
+		<dict>
+			<key>fileRef</key>
+			<string>AA15C6374BCB95DA87FABF4BDCDF09BE</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
 		</dict>
 		<key>E77FAB056D52C5A88C4E00A4A05A1806</key>
 		<dict>
@@ -1452,19 +1496,6 @@
 			<key>name</key>
 			<string>Release</string>
 		</dict>
-		<key>E93B8B8178752B33E48DF86F67451906</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>IIViewDeckTransitioningDelegate.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>E9DA151B2BE23C62F8397811687091E9</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -1491,12 +1522,25 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>EC8914FE8273191BAE876DAEBB7CDE1A</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>IIViewDeckPresentationController.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>F047DBF99F18478B19BD11D96EBE888E</key>
 		<dict>
 			<key>children</key>
 			<array>
 				<string>CC7FBE0BF32006CEB909F357834A887A</string>
-				<string>D506CB370DBF2923B1DDF564CED93741</string>
+				<string>2A9B712932B2093C0D2E66E7953DCAD2</string>
 			</array>
 			<key>isa</key>
 			<string>PBXGroup</string>
@@ -1506,34 +1550,6 @@
 			<string>../..</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
-		</dict>
-		<key>F27453EDF583D386586B49D3712FE820</key>
-		<dict>
-			<key>fileRef</key>
-			<string>1554E02CDF145C6F3741764F2FE7348F</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
-		<key>F55DAE357EC09B08A3E05D294CAE8F6C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>F95FAE7A48EF49BFEE4E4D2B06F67EB7</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
 		</dict>
 		<key>F87F9A2EAFDF5CAB04F01F7275C56E06</key>
 		<dict>
@@ -1546,20 +1562,20 @@
 			<key>targetProxy</key>
 			<string>23CF753753C47BC2D3A228E4389E5DF9</string>
 		</dict>
-		<key>F95FAE7A48EF49BFEE4E4D2B06F67EB7</key>
+		<key>F8B1DC170389F9CBF1A176A726607599</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
 			<key>isa</key>
 			<string>PBXFileReference</string>
 			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
+			<string>sourcecode.c.objc</string>
 			<key>path</key>
-			<string>UIViewController+IIViewDeckAdditions.h</string>
+			<string>IIViewDeckPresentationController.m</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>F9D093427345426F9AC0F43714C31250</key>
+		<key>F8FBC4017C455BEBBF2FA7097F6DF1E3</key>
 		<dict>
 			<key>includeInIndex</key>
 			<string>1</string>
@@ -1569,6 +1585,19 @@
 			<string>sourcecode.c.h</string>
 			<key>path</key>
 			<string>ViewDeck.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>FA496365C21021F962DFDA3A67DC983D</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>UIViewController+IIViewDeckAdditions.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
