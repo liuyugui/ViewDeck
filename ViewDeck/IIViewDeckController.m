@@ -1516,7 +1516,15 @@ static NSTimeInterval durationToAnimate(CGFloat pointsToAnimate, CGFloat velocit
     return [self openSideView:side animated:animated duration:DEFAULT_DURATION completion:completed];
 }
 
+
+#pragma mark 这里是打开通道
+
 - (BOOL)openSideView:(IIViewDeckSide)side animated:(BOOL)animated duration:(NSTimeInterval)duration completion:(IIViewDeckControllerBlock)completed {
+    
+#pragma mark 执行打开的block
+    self.OpenBlock();
+    
+    
     // if there's no controller or we're already open, just run the completion and say we're done.
     if (![self controllerForSide:side] || [self isSideOpen:side]) {
         if (completed) completed(self, YES);
@@ -1635,7 +1643,14 @@ static NSTimeInterval durationToAnimate(CGFloat pointsToAnimate, CGFloat velocit
     return [self closeSideView:side animated:animated duration:DEFAULT_DURATION completion:completed];
 }
 
+
+#pragma mark 关闭通道
+
 - (BOOL)closeSideView:(IIViewDeckSide)side animated:(BOOL)animated duration:(NSTimeInterval)duration completion:(IIViewDeckControllerBlock)completed {
+    
+#pragma mark 执行关闭的block
+    self.CloseBlock();
+    
     if ([self isSideClosed:side]) {
         if (completed) completed(self, YES);
         return YES;
@@ -1664,6 +1679,9 @@ static NSTimeInterval durationToAnimate(CGFloat pointsToAnimate, CGFloat velocit
         [self notifyDidCloseSide:side animated:animated];
         UIAccessibilityPostNotification(UIAccessibilityScreenChangedNotification, nil);
     }];
+    
+    
+
     
     return YES;
 }
@@ -2676,6 +2694,9 @@ static NSTimeInterval durationToAnimate(CGFloat pointsToAnimate, CGFloat velocit
     [self notifyDidCloseSide:closeSide animated:NO];
     [self notifyDidOpenSide:openSide animated:NO];
     [self addPannersIfAllPannersAreInactiveAndNeeded];
+    
+    
+    
 }
 
 - (void) setParallax {
